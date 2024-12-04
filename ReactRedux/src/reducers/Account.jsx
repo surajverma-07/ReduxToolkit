@@ -4,7 +4,8 @@ import {
     getAccUserRejected,
     inc,
     dec,
-    incByAmt
+    incByAmt,
+    decByAmt
   } from '../actions/Index';
   
   export function accountReducer(state = { amount: 1 }, action) {
@@ -21,6 +22,12 @@ import {
         return { amount: state.amount - 1 };
       case incByAmt:
         return { amount: state.amount + action.payload };
+      case decByAmt:
+        if((state.amount - action.payload) < 0){
+          return {...state,error:"Amount Can't Be Negative"}
+        }else{
+          return {amount: state.amount - action.payload}  
+        }
       default:
         return state;
     }

@@ -11,16 +11,17 @@ import { bonusReducer } from './reducers/Bonus.jsx'
 
 const store = createStore(
   combineReducers({
-       amount:accountReducer,
-       bonus:bonusReducer
+    account: accountReducer,
+    bonus: bonusReducer,
   }),
-  applyMiddleware(logger, thunk));
+  applyMiddleware(logger, thunk)
+);
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-
-    <App />
+       <App />
     </Provider>
   </StrictMode>
 )

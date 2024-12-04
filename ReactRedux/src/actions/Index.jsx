@@ -10,6 +10,7 @@ export const getAccUserPending = 'account/getUser/pending';
 export const getAccUserFulFilled = 'account/getUser/fulfilled';
 export const getAccUserRejected = 'account/getUser/rejected';
 export const incBonus = 'bonus/increment';
+export const decByAmt = 'account/decrementByAmount';
 
 export function getUserAccount(id) {
   return async (dispatch, getState) => {
@@ -40,6 +41,9 @@ export function decrement() {
 }
 export function incrementByAmount(value) {
   return { type: incByAmt, payload: value };
+}
+export function decrementByAmount(value){
+  return {type:decByAmt,payload:value}
 }
 export function incrementBonus(value) {
   return { type: incBonus };

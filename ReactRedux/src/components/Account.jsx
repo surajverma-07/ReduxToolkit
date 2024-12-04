@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { increment,decrement,incrementByAmount, getUserAccount } from "../actions/Index";
+import { increment,decrement,incrementByAmount, getUserAccount,decrementByAmount } from "../actions/Index";
 import { useSelector,useDispatch } from "react-redux";
 function Account() {
  
  const [value,setValue] = useState(0) ; 
-
+ const[value2,setValue2]  = useState(0)
  const amount = useSelector(state=>state.account.amount)
  const points = useSelector(state=>state.bonus.points)
+ const err = useSelector(state=>state.account.error)
  const dispatch = useDispatch()
 
   return (
@@ -21,6 +22,8 @@ function Account() {
           <button onClick={()=>dispatch(decrement())}>Decrement -</button>
           <input type='text' onChange={(e)=>setValue(+e.target.value)}></input>
           <button onClick={()=>dispatch(incrementByAmount(value))}>Increment By {value} +</button>
+          <input type='text' onChange={(e)=>setValue2(+e.target.value)}></input>
+          <button onClick={()=>dispatch(decrementByAmount(value2))} disabled={err}>Decrement By {value2} -</button>
           <button onClick={()=>dispatch(getUserAccount(1))}>Init Account</button>
 
         </div>
