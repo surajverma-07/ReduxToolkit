@@ -2,9 +2,13 @@ import { useState } from "react";
 function Account() {
  
  const [value,setValue] = useState(0) ; 
- const[value2,setValue2]  = useState(0)
- 
-
+ const[amount,setAmount]  = useState(0);
+  function incByval(value){
+         setAmount(amount+parseInt(value));
+         console.log("amount ", amount);
+         
+  }
+ console.log("Amount :: ", amount);
   return (
       <div className="card">
         <div className="container">
@@ -12,14 +16,11 @@ function Account() {
             <b>Account Component</b>
           </h4>
           <h3>Amount:${amount}</h3>
-          <h3>points:${points}</h3>
-          <button onClick={()=>dispatch(increment())}>Increment +</button>
-          <button onClick={()=>dispatch(decrement())}>Decrement -</button>
+          {/* <h3>points:${points}</h3> */}
+          <button onClick={(e)=>setAmount(e.target.value++)}>Increment +</button>
+          <button onClick={(e)=>setAmount(e.target.value--)}>Decrement -</button>
           <input type='text' onChange={(e)=>setValue(+e.target.value)}></input>
-          <button onClick={()=>dispatch(incrementByAmount(value))}>Increment By {value} +</button>
-          <input type='text' onChange={(e)=>setValue2(+e.target.value)}></input>
-          <button onClick={()=>dispatch(decrementByAmount(value2))} disabled={err}>Decrement By {value2} -</button>
-          <button onClick={()=>dispatch(getUserAccount(1))}>Init Account</button>
+          <button onClick={(e)=>incByval(value)}>Increment By {value} +</button>
 
         </div>
       </div>
