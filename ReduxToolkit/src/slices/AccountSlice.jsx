@@ -11,10 +11,10 @@ export const accountSlice = createSlice({
             state.amount += 1;
         },
         decrement:(state,action)=>{
-            state.amount -+ 1;
+            state.amount -= 1;
         },
         incrementByAmt:(state,action)=>{
-            state.amount+= action.payload;
+            state.amount+= parseInt(action.payload);
         }
     }
 })
