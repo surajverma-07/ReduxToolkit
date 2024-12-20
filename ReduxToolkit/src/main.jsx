@@ -6,13 +6,16 @@ import { configureStore } from '@reduxjs/toolkit'
 import  accountSlice  from './slices/AccountSlice.jsx'
 import  bonusSlice  from './slices/BonusSlice.jsx'
 import { Provider } from 'react-redux'
+import rewardReducer from './reducers/rewardReducer.jsx'
 
 const store = configureStore({
   reducer:{
     account:accountSlice,
-    bonus:bonusSlice
+    bonus:bonusSlice,
+    reward:rewardReducer
   }
 })
+
 createRoot(document.getElementById('root')).render(
   
   <StrictMode>

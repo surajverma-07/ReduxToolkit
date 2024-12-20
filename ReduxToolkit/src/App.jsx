@@ -3,6 +3,7 @@ import './App.css';
 import Account from './components/Account.jsx';
 import Bonus from './components/Bonus.jsx';
 import { useState } from 'react';
+import Reward from './components/Reward.jsx';
 
 function App() {
   const amount = useSelector(state=>state.account.amount)
@@ -18,6 +19,7 @@ function App() {
 
       <Account/>
       <Bonus/>
+      <Reward/>
     </div>
   );
 }
