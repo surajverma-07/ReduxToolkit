@@ -1,4 +1,4 @@
-import { createAction, createSlice } from '@reduxjs/toolkit'
+import { createAction,createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   points: 11,
