@@ -6,7 +6,9 @@ export const adminApi = createApi({
     endpoints:(builder)=>({
         getAccounts:builder.query({
             query:()=>`/accounts`,
+            providesTags:['accounts'],
         }),
+    
     })
 })
 

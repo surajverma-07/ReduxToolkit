@@ -12,7 +12,7 @@ function Admin() {
             <b>Admin Component</b>
           </h4>
           {
-            data && data.map((account)=> <p>{account.id}:{account.amount}</p>)
+            data && data.map((account)=> <p key={account.id}>{account.id}:{account.amount}</p>)
           }
           
           {/* <button onClick={()=>dispatch(incrementBonus())}>Increment +</button> */}
