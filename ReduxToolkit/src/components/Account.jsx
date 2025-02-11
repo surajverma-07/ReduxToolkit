@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment, incrementByAmt,fetchedUserById } from "../slices/AccountSlice";
+import { decrement, increment, incrementByAmt,fetchedUserById,deleteUserById } from "../slices/AccountSlice";
 function Account() {
  const dispatch = useDispatch();
  const [value,setValue] = useState(0) ; 
+ const [id,setId] = useState(0)
  const amount = useSelector(state=>state.account.amount)
  const points = useSelector(state=>state.bonus.points)
   return (
@@ -19,6 +20,8 @@ function Account() {
           <input type='text' onChange={(e)=>setValue(e.target.value)}></input>
           <button onClick={(e)=>dispatch(incrementByAmt(value))}>Increment By {value} +</button>
           <button onClick={()=>dispatch(fetchedUserById(1))}>Fetch User</button>
+          <input type="number" placeholder="Enter id to delete user" onChange={(e)=>setId(e.target.value)} />
+          <button onClick={()=>dispatch(deleteUserById(id))}>Delete user {id}</button>
         </div>
       </div>
   );

@@ -12,7 +12,12 @@ export const fetchedUserById = createAsyncThunk(
        return data.amount;
     }
 )
-
+export const deleteUserById = createAsyncThunk(
+    'account/deleteUser',
+    async(userId,thunkAPI)=>{
+       const {data} = await axios.delete(`http://localhost:3000/accounts/${userId}`);
+    }
+)
 export const accountSlice = createSlice({
     name:"account",
     initialState,
@@ -39,6 +44,14 @@ export const accountSlice = createSlice({
             state.status = "failed";
             state.pending = false;
         });
+        
+    },
+    extraReducers:(builder)=>{
+        builder.addCase(deleteUserById.fulfilled,(state,action)=>{
+            state.amount=0;
+            state.status="success"
+            state.pending="false"
+        })
     }
 })
 
