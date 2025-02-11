@@ -7,9 +7,18 @@ export const adminApi = createApi({
         getAccounts:builder.query({
             query:()=>`/accounts`,
             providesTags:['accounts'],
+            // invalidatesTags:['accounts'],
         }),
+        addAccount:builder.mutation({
+            query:(amount,id)=>({
+                url:'/accounts',
+                method:'POST',
+                body:{amount,id}
+            }),
+          invalidatesTags:['accounts']
+        })
     
     })
 })
 
-export const {useGetAccountsQuery} = adminApi;
+export const {useGetAccountsQuery,useAddAccountMutation} = adminApi;
