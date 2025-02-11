@@ -40,3 +40,9 @@ input{
 p{
   color:white
 }
+#admindata{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 10px;
+}
